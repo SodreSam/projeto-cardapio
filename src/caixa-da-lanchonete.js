@@ -5,7 +5,7 @@ function atualizarCardapio(){
         {
             id: 0,
             codigo: "cafe",
-            descricao: "Café",
+            descricao: "Café expresso",
             valor: 3,
             imagem: "images/cafe.jpg"
         },
