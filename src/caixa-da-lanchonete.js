@@ -1,6 +1,8 @@
 
 function atualizarCardapio(){
 
+
+    //array para armanezar objetos/produtos do cardápio
     const cardapio = [
         {
             id: 0,
@@ -60,15 +62,18 @@ function atualizarCardapio(){
         },
     ]
     
+    //constante para salvar a <section> do html que possui o ID cards
     const cardsContainer = document.getElementById('cards');
 
 
+//para cada produto que está no array cardapio, ele vai criar uma div e insere a classe card na div criada
 cardapio.forEach(produto => {
-    const cardDiv = document.createElement('div');
-    cardDiv.className = 'card';
+    const cardDiv = document.createElement('div'); //cria a div
+    cardDiv.className = 'card'; //define a classe como card
 
+    //cria uma variável onde vai a estrutura dos objetos/produtos do cardapio
     const cardContent = `
-    <img class="produto" src="${produto.imagem}" alt="produto1">
+    <img class="produto" src="${produto.imagem}" alt="produto1"> 
   
     <div class="card-bottom">
         <div class="titulo">
@@ -79,12 +84,20 @@ cardapio.forEach(produto => {
     </div>  
     `;
 
+    //insere na div criada "cards" o conteúdo dos objetos em HTML
     cardDiv.innerHTML = cardContent;
+
+    //define a div "card" como "filha" da section com o id "cards" de modo que a a estrutura fique
+    //<section id="cards">
+    //<div class="card">
+    // conteúdo da variável cardContent
+    // </div> 
+    //</section>
     cardsContainer.appendChild(cardDiv);
 
     
 });
-
 }
 
+//função para que no carregamento da página ele chame a função atualizarCardapio
 window.addEventListener("load", atualizarCardapio);
